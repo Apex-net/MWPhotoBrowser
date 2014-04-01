@@ -354,13 +354,13 @@ static const NSInteger NIPhotoScrubberViewUnknownTag = -1;
   return photoIndex;
 }
 
-- (void)updateSelectionWithPoint:(CGPoint)point {
+- (void)updateSelectionWithPoint:(CGPoint)point didEnd:(BOOL)ended{
   NSInteger photoIndex = [self photoIndexAtPoint:point];
   
   if (photoIndex != _selectedPhotoIndex) {
     [self setSelectedPhotoIndex:photoIndex];
     
-    if ([self.delegate respondsToSelector:@selector(photoScrubberViewDidChangeSelection:)]) {
+    if (ended && [self.delegate respondsToSelector:@selector(photoScrubberViewDidChangeSelection:)]) {
       [self.delegate photoScrubberViewDidChangeSelection:self];
     }
   }
@@ -368,14 +368,13 @@ static const NSInteger NIPhotoScrubberViewUnknownTag = -1;
 
 #pragma mark - UIResponder
 
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   [super touchesBegan:touches withEvent:event];
   
   UITouch* touch = [touches anyObject];
   CGPoint touchPoint = [touch locationInView:_containerView];
 
-  [self updateSelectionWithPoint:touchPoint];
+  [self updateSelectionWithPoint:touchPoint didEnd:YES];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -384,7 +383,27 @@ static const NSInteger NIPhotoScrubberViewUnknownTag = -1;
   UITouch* touch = [touches anyObject];
   CGPoint touchPoint = [touch locationInView:_containerView];
   
-  [self updateSelectionWithPoint:touchPoint];
+  [self updateSelectionWithPoint:touchPoint didEnd:NO];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    
+    UITouch* touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:_containerView];
+    
+    [self updateSelectionWithPoint:touchPoint didEnd:YES];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+    
+    UITouch* touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:_containerView];
+    
+    [self updateSelectionWithPoint:touchPoint didEnd:YES];
 }
 
 #pragma mark - Public
@@ -406,7 +425,7 @@ static const NSInteger NIPhotoScrubberViewUnknownTag = -1;
 }
 
 - (void)reloadData {
-//  NIDASSERT(nil != _dataSource);
+  NSAssert(nil != _dataSource, NSLocalizedString(@"Datasource must not be nil.", nil));
 
   // Remove any visible photos from the view before we release the sets.
   for (UIView* photoView in _visiblePhotoViews) {
