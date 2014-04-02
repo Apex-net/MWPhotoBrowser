@@ -32,6 +32,12 @@
 // methods returns nil.
 @property (nonatomic, strong) UIImage *underlyingImage;
 
+// Return underlying index of the photo
+@property (nonatomic, assign) NSUInteger index;
+
+// Return whenever the photo is a thumbnail
+@property (nonatomic, assign) BOOL isThumbnail;
+
 // Called when the browser has determined the underlying images is not
 // already loaded into memory but needs it.
 - (void)loadUnderlyingImageAndNotify;

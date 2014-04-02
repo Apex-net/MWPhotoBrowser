@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, assign) NSUInteger index;
+@property (nonatomic, assign) BOOL isThumbnail;
 @property (nonatomic, readonly) NSURL *photoURL;
 @property (nonatomic, readonly) NSString *filePath  __attribute__((deprecated("Use photoURL"))); // Depreciated
 

@@ -14,10 +14,10 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @interface MWPhoto () {
-
+    
     BOOL _loadingInProgress;
     id <SDWebImageOperation> _webImageOperation;
-        
+    
 }
 
 - (void)imageLoadingComplete;
