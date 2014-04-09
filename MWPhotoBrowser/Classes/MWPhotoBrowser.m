@@ -1220,8 +1220,12 @@
         _pagingScrollView.frame = newPagingFrame;
     } completion:^(BOOL finished) {
         [_gridController didMoveToParentViewController:self];
+        
+        // when grid view is presented, hide right bar button items
+        _rightBarButtonItems = self.navigationItem.rightBarButtonItems;
+        self.navigationItem.rightBarButtonItems = nil;
     }];
-    
+
 }
 
 - (void)hideGrid {
@@ -1258,6 +1262,9 @@
         [tmpGridController.view removeFromSuperview];
         [tmpGridController removeFromParentViewController];
         [self setControlsHidden:NO animated:YES permanent:NO]; // retrigger timer
+        
+        // when grid view is hidden, show right bar button items
+        self.navigationItem.rightBarButtonItems = _rightBarButtonItems;
     }];
 
 }

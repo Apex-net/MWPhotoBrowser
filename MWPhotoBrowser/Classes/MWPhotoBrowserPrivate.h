@@ -20,6 +20,7 @@
     NSMutableArray *_photos;
     NSMutableArray *_thumbPhotos;
 	NSArray *_depreciatedPhotoData; // Depreciated
+    NSArray *_rightBarButtonItems;
 	
 	// Views
 	UIScrollView *_pagingScrollView;
