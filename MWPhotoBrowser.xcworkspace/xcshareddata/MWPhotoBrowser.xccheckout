@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DDF31D47-32FA-46E1-B9DA-53C641DAC145</string>
+	<string>41E32A8F-7E53-411B-BB58-65C802F1161C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MWPhotoBrowser</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>ED8D380B-81F6-4CE7-8306-8582B2CF5211</key>
-		<string>https://github.com/AL333Z/MWPhotoBrowser.git</string>
+		<key>D0E205E2-1C9B-4D9D-8651-4DDB902CC5A3</key>
+		<string>https://github.com/Apex-net/MWPhotoBrowser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MWPhotoBrowser.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>ED8D380B-81F6-4CE7-8306-8582B2CF5211</key>
+		<key>D0E205E2-1C9B-4D9D-8651-4DDB902CC5A3</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/AL333Z/MWPhotoBrowser.git</string>
+	<string>https://github.com/Apex-net/MWPhotoBrowser.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>ED8D380B-81F6-4CE7-8306-8582B2CF5211</string>
+	<string>D0E205E2-1C9B-4D9D-8651-4DDB902CC5A3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>ED8D380B-81F6-4CE7-8306-8582B2CF5211</string>
+			<string>D0E205E2-1C9B-4D9D-8651-4DDB902CC5A3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MWPhotoBrowser</string>
 		</dict>
