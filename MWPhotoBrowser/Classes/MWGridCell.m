@@ -49,7 +49,7 @@
         _selectedButton.hidden = YES;
         _selectedButton.frame = CGRectMake(0, 0, 44, 44);
         [self addSubview:_selectedButton];
-    
+        
 		// Loading indicator
 		_loadingIndicator = [[DACircularProgressView alloc] initWithFrame:CGRectMake(0, 0, 40.0f, 40.0f)];
         _loadingIndicator.userInteractionEnabled = NO;
@@ -208,7 +208,7 @@
 
 - (void)handleMWPhotoLoadingDidEndNotification:(NSNotification *)notification {
     id <MWPhoto> photo = [notification object];
-    if (photo == _photo) {
+    if (photo == _photo && _index == photo.index) {
         if ([photo underlyingImage]) {
             // Successful load
             [self displayImage];

@@ -200,8 +200,9 @@
     NSAssert([[NSThread currentThread] isMainThread], @"This method must be called on the main thread.");
     // Complete so notify
     _loadingInProgress = NO;
-    // Notify on next run loop
-    [self performSelector:@selector(postCompleteNotification) withObject:nil afterDelay:0];
+    
+    // Notify now. The receiver will decide if update the view now, or on the next run loop, or never
+    [self postCompleteNotification];
 }
 
 - (void)postCompleteNotification {
